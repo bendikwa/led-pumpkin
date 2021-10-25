@@ -23,6 +23,7 @@ public:
 
     void setBrightness(short unsigned int brightness);
     void setColor(uint32_t color);
+    void setColor(const char * txtColor);
     void red();
     void orange();
     void yellow();
@@ -30,6 +31,9 @@ public:
     void green();
     void violet();
     void off();
+    short unsigned int getBrightness(){
+        return brightness;
+    }
 };
 
 #endif /* LEDSTRIP_H_ */

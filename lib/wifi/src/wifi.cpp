@@ -1,17 +1,17 @@
 #include "wifi.h"
 
-boolean startWifi(const String& ssid, const String& passphrase)
+boolean startWifi(const String &ssid, const String &passphrase)
 {
 	// Connect to WiFi access point.
 	Serial.printf("startWifi:      Connecting to %s\n", ssid.c_str());
 
-  WiFi.begin(ssid, passphrase);
+	WiFi.begin(ssid, passphrase);
 
-	
 	int wifiStatus = WiFi.status();
 	Serial.print("startWifi:      ");
-	while (wifiStatus != WL_CONNECTED) {
-		delay( 50 );
+	while (wifiStatus != WL_CONNECTED)
+	{
+		delay(50);
 		wifiStatus = WiFi.status();
 		Serial.print(".");
 	}

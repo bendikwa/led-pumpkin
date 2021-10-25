@@ -19,6 +19,38 @@ void LedStrip::setColor(uint32_t c)
     this->neoPixels->show();
 }
 
+void LedStrip::setColor(const char *txtColor)
+{
+    if (strcmp(txtColor, "red") == 0)
+    {
+        this->red();
+    }
+    else if (strcmp(txtColor, "orange") == 0)
+    {
+        this->orange();
+    }
+    else if (strcmp(txtColor, "yellow") == 0)
+    {
+        this->yellow();
+    }
+    else if (strcmp(txtColor, "green") == 0)
+    {
+        this->green();
+    }
+    else if (strcmp(txtColor, "blue") == 0)
+    {
+        this->blue();
+    }
+    else if (strcmp(txtColor, "violet") == 0)
+    {
+        this->violet();
+    }
+    else if (strcmp(txtColor, "off") == 0)
+    {
+        this->off();
+    }
+}
+
 void LedStrip::red()
 {
     this->neoPixels->fill(this->neoPixels->ColorHSV(hue_red, 255, this->brightness), startPixel, count);
@@ -57,6 +89,6 @@ void LedStrip::violet()
 
 void LedStrip::off()
 {
-    this->neoPixels->fill(this->neoPixels->Color(0,0,0), startPixel, count);
+    this->neoPixels->fill(this->neoPixels->Color(0, 0, 0), startPixel, count);
     this->neoPixels->show();
 }
