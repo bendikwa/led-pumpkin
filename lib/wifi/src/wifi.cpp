@@ -1,25 +1,23 @@
 #include "wifi.h"
 
-boolean start_wifi()
+boolean startWifi(const String& ssid, const String& passphrase)
 {
 	// Connect to WiFi access point.
-	Serial.println(); Serial.println();
-	Serial.print("start_wifi:   Connecting to ");
-	Serial.println(WLAN_SSID);
+	Serial.printf("startWifi:      Connecting to %s\n", ssid.c_str());
 
-  WiFi.begin(WLAN_SSID, WLAN_PASS);
+  WiFi.begin(ssid, passphrase);
 
 	
 	int wifiStatus = WiFi.status();
-	Serial.print("start_wifi:   ");
+	Serial.print("startWifi:      ");
 	while (wifiStatus != WL_CONNECTED) {
 		delay( 50 );
 		wifiStatus = WiFi.status();
 		Serial.print(".");
 	}
 	Serial.println();
-	Serial.println("start_wifi:   WiFi connected");
-	Serial.print("start_wifi:   IP address: "); Serial.println(WiFi.localIP());
-	Serial.print("start_wifi:   MAC address: "); Serial.println(WiFi.macAddress());
+	Serial.printf("startWifi:      WiFi connected\n");
+	Serial.printf("startWifi:      IP address: %s\n", WiFi.localIP().toString().c_str());
+	Serial.printf("startWifi:      MAC address: %s\n", WiFi.macAddress().c_str());
 	return true;
 }

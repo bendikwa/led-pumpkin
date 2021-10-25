@@ -3,10 +3,6 @@
 
 #include <ESP8266WiFi.h>
 
-/************************* WiFi Access Point *********************************/
-#define WLAN_SSID       "<SSID>"
-#define WLAN_PASS       "<WIFI_PASS>"
-
-boolean start_wifi();
+boolean startWifi(const String& ssid, const String& passphrase);
 
 #endif /* WIFI_H_ */
